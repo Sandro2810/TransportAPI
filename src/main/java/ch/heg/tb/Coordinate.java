@@ -1,5 +1,6 @@
 package ch.heg.tb;
 
+//donnees des coordonnées
 public class Coordinate {
 
   private String x;

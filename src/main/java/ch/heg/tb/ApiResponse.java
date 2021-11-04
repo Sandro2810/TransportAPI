@@ -2,6 +2,7 @@ package ch.heg.tb;
 
 import java.util.List;
 
+//reponse de l'API
 public class ApiResponse {
 
   //connections
@@ -10,10 +11,12 @@ public class ApiResponse {
   //Setters and getters
 
 
+  //affichage
   public String toString() {
 
     String trajets = "";
-    
+
+    //parcours toutes les connections si limit > 1
     for (int i=0; i<connections.size(); i++) {
       trajets += " -  " + connections.get(i).toString();
     }

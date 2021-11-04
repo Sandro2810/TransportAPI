@@ -20,17 +20,20 @@ public class App
     public static void main( String[] args )
     {
 
+        //création Builder okHttpClient
         OkHttpClient.Builder httpClient = new Builder();
 
+        //requette de base + transformation de reponse en Gson
         Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("http://transport.opendata.ch/v1/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(httpClient.build())
             .build();
 
+        //appel à l'interface
         IService service = retrofit.create(IService.class);
 
-        // Calling '/api/users/2'
+        // Requettes avec les paramètres
         Call<ApiResponse> callSyncTrain = service.getData("Biel/Bienne", "Reuchenette-Péry", 1, "train");
         Call<ApiResponse> callSyncBus = service.getData("Biel/Bienne", "Reuchenette-Péry", 1, "bus");
 

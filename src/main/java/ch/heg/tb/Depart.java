@@ -2,13 +2,16 @@ package ch.heg.tb;
 
 import java.util.List;
 
+//données de depart
 public class Depart {
 
   private String departure;
   private String departureTimestamp;
 
+  //depart d'une station
   private Station station;
 
+  //getter & setter
   public String getDeparture() {
     return departure;
   }
@@ -33,6 +36,7 @@ public class Depart {
     this.station = station;
   }
 
+  //format heure de depart
   public String heuredepart(){
     String date[] = getDeparture().split("T");
     String heure[] = date[1].split("\\+");
@@ -40,6 +44,7 @@ public class Depart {
     return heure[0];
   }
 
+  //affichage
   @Override
   public String toString() {
     return "Départ à " +  heuredepart() + " depuis " + station;
